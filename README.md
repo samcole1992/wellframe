@@ -4,7 +4,10 @@ This Rails project was bootstrapped with rails new PROJECT_NAME --api
 To setup the project
 
   run rake db:create
+
   run bundle
+
+  run rails s
 
 The gem 'fast_jsonapi' is used for json serializing
 

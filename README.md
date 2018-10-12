@@ -1,24 +1,53 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails project was bootstrapped with rails new PROJECT_NAME --api
 
-Things you may want to cover:
+To setup the project
 
-* Ruby version
+  run rake db:create
+  run bundle
 
-* System dependencies
+The gem 'fast_jsonapi' is used for json serializing
 
-* Configuration
+# Create a medication
+curl -XPOST -H 'Content-Type: application/json' -d '{ "medication": {"name":"Vitamin A"}}' http://localhost:3000/medications
 
-* Database creation
+# List all medications
+curl -XGET -H 'Content-Type: application/json'
+http://localhost:3000/medications
 
-* Database initialization
+# List a medication
+curl -XGET -H 'Content-Type: application/json'
+http://localhost:3000/medications/MEDICATION_ID
 
-* How to run the test suite
+# Update a medication
+curl -XPATCH -H 'Content-Type: application/json' -d '{ "medication": {"name":"Vitamin L"}}' http://localhost:3000/medications/MEDICATION_ID
 
-* Services (job queues, cache servers, search engines, etc.)
+# Delete a medication
+curl -XDELETE -H 'Content-Type: application/json'
+http://localhost:3000/medications/MEDICATION_ID
 
-* Deployment instructions
+# Assign a medication to a patient
+curl -XPATCH -H 'Content-Type: application/json'
+http://localhost:3000/medications/MEDICATION_ID/patients/PATIENT_ID/assign
 
-* ...
+# Remove a medication to a patient
+curl -XPATCH -H 'Content-Type: application/json'
+http://localhost:3000/medications/MEDICATION_ID/patients/PATIENT_ID/remove
+
+# Create a patient
+curl -XPOST -H 'Content-Type: application/json' -d '{ "patient": {"name":"James Dean"}}' http://localhost:3000/patients
+
+# List all patients
+curl -XGET -H 'Content-Type: application/json'
+http://localhost:3000/patients
+
+# List a patient their associated medication(s)
+curl -XGET -H 'Content-Type: application/json'
+http://localhost:3000/patients/PATIENT_ID
+
+# Update a patient
+curl -XPATCH -H 'Content-Type: application/json' -d '{ "patient": {"name":"Daffy Duck"}}' http://localhost:3000/patients/PATIENT_ID
+
+# Delete a patient
+curl -XDELETE -H 'Content-Type: application/json'
+http://localhost:3000/patients/PATIENT_ID

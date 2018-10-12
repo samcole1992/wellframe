@@ -33,7 +33,7 @@ http://localhost:3000/medications/MEDICATION_ID
 curl -XPATCH -H 'Content-Type: application/json'
 http://localhost:3000/medications/MEDICATION_ID/patients/PATIENT_ID/assign
 
-# Remove a medication to a patient
+# Remove a medication from a patient
 curl -XPATCH -H 'Content-Type: application/json'
 http://localhost:3000/medications/MEDICATION_ID/patients/PATIENT_ID/remove
 
